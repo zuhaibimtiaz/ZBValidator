@@ -51,6 +51,15 @@ struct ZBValidator<T: Equatable> {
         self.rules = rules
     }
     
+    init(
+        wrappedValue: T,
+        _ rules: [ZBValidationRule]
+    ) {
+        self.value = wrappedValue
+        self.initialValue = wrappedValue
+        self.rules = rules
+    }
+    
     private func validate(rule: ZBValidationRule) -> String? {
         switch rule {
         case .required(let message):
